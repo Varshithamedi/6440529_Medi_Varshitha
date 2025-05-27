@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local Community Event Portal</title>
+
+    <!-- Internal CSS (Exercise 2) -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6f9;
+            margin: 0;
+            padding: 0 20px;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav ul {
+            list-style-type: none; /* Exercise 7: Lists */
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: #34495e;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            display: inline-block;
+        }
+        nav ul li a:hover {
+            background-color: #2980b9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        /* Multi-column layout (Exercise 10) */
+        #events-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .event-card {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 30%;
+            box-sizing: border-box;
+            padding: 15px;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .event-card:hover {
+            transform: scale(1.02);
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
+        }
+        .event-card h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        button {
+            background-color: #2980b9;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #1c5980;
+        }
+        /* Responsive Design (Exercise 11) */
+        @media screen and (max-width: 900px) {
+            .event-card {
+                width: 45%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .event-card {
+                width: 100%;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+        /* Table styling for Exercise 8 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
+        /* Inline CSS example for Exercise 1 on the header (just demonstration) */
+    </style>
+
+    <!-- External CSS (Exercise 3) -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- jQuery CDN (Exercise 14) -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJXtVZZTXyDJ3tj7iQdh8B9flFco9NF1+FBIw="
+      crossorigin="anonymous"
+    ></script>
+
+</head>
+<body onload="pageLoaded()">
+
+<header style="font-size: 24px; font-weight: bold;">Local Community Event Portal</header>
+
+<nav>
+    <ul>
+        <li><a href="#" id="nav-home">Home</a></li>
+        <li><a href="#" id="nav-events">Events</a></li>
+        <li><a href="#" id="nav-register">Register</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+
+    <section>
+        <h2>Filter by Category:</h2>
+        <select id="categoryFilter">
+            <option value="All">All</option>
+            <option value="Music">Music</option>
+            <option value="Sports">Sports</option>
+            <option value="Workshop">Workshop</option>
+        </select>
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search events by name..."
+          style="margin-left: 15px; padding: 5px; width: 220px;"
+        />
+    </section>
+
+    <section id="events-list" aria-live="polite" aria-atomic="true">
+        <!-- Event cards inserted dynamically here -->
+    </section>
+
+    <section id="registration-section" style="margin-top:40px;">
+        <h2>Register for an Event</h2>
+        <form id="registrationForm">
+            <label>
+                Your Name: <input type="text" name="name" required />
+            </label><br /><br />
+            <label>
+                Your Email: <input type="email" name="email" required />
+            </label><br /><br />
+            <label>
+                Select Event:
+                <select name="eventSelect" required>
+                    <!-- Populated dynamically -->
+                </select>
+            </label><br /><br />
+            <button type="submit" id="registerBtn">Register</button>
+        </form>
+        <p id="formMessage" style="color: red; font-weight: bold;"></p>
+    </section>
+
+    <!-- Example table for Exercise 8 -->
+    <section id="event-stats" style="margin-top:50px;">
+        <h2>Event Registration Stats</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Total Seats</th>
+                    <th>Seats Available</th>
+                    <th>Registrations</th>
+                </tr>
+            </thead>
+            <tbody id="statsTableBody">
+                <!-- Filled dynamically -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Loading Spinner for async example -->
+    <div id="loadingSpinner" style="display:none; text-align:center; margin:20px;">
+        <strong>Loading events...</strong>
+    </div>
+
+</div>
+
+<!-- External JS -->
+<script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* Example external CSS overrides and additions */
+body {
+    background-color: #e8f0fe;
+}
+
+h2 {
+    color: #34495e;
+}
+
+input, select {
+    font-size: 1rem;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
