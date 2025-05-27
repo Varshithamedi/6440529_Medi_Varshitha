@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Preferences</title><script>function savePref() { localStorage.setItem('event','Music'); }</script></head>
+<body>
+<select onchange="savePref()"><option>Music</option></select>
+<button onclick="localStorage.clear();sessionStorage.clear();">Clear Preferences</button>
+</body></html>

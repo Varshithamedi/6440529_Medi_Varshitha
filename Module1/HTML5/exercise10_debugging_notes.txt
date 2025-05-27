@@ -1,0 +1,1 @@
+Use Chrome DevTools to Inspect, Console log JS, add breakpoints, and monitor variable values.

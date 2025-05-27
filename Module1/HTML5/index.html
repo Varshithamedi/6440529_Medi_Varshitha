@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Community Event Portal</title>
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    header, footer {
+      background: #2b6777;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    nav {
+      background: #52ab98;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #welcomeBanner {
+      background: lightblue;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .highlight {
+      background: yellow;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .gallery-img {
+      border: 3px solid #ccc;
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+      margin-top: 20px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+
+    .char-count {
+      text-align: right;
+      font-size: 0.9em;
+      color: #444;
+    }
+
+    video {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    #locationResult {
+      margin-top: 10px;
+      color: green;
+    }
+  </style>
+
+  <!-- 7. Video Invite with Media Events -->
+  <script>
+    window.onbeforeunload = function () {
+      return "You have unsaved changes!";
+    };
+  </script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Welcome to the Local Community Event Portal</h1>
+  </header>
+
+  <!-- 2. Navigation and Linking -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+    <a href="help.html" target="_blank">Help</a>
+  </nav>
+
+  <!-- Main -->
+  <main>
+
+    <!-- 3. Welcome Message -->
+    <section id="home">
+      <div id="welcomeBanner">
+        <h2>Welcome, Resident!</h2>
+        <p class="highlight">Enjoy the best local events!</p>
+        <p><span style="color:red; font-weight:bold;">Special Offer:</span> Register now to win goodies!</p>
+      </div>
+    </section>
+
+    <!-- 4. Image Gallery -->
+    <section id="events">
+      <h2>Past Events Gallery</h2>
+      <table>
+        <caption>Community Memories</caption>
+        <tr>
+          <td><img src="./images/cleanup.jpg" alt="Cleanup" title="Cleanup Drive" class="gallery-img"></td>
+          <td><img src="./images/foodmarket.jpg" alt="Food Market" title="Food Market" class="gallery-img"></td>
+          <td><img src="./images/sportsday.jpg" alt="Sports Day" title="Sports Day" class="gallery-img" ondblclick="this.style.width='300px'"></td>
+        </tr>
+        <tr>
+          <td><img src="./images/artfair.jpg" alt="Art Fair" title="Art Fair" class="gallery-img"></td>
+          <td><img src="./images/musicfestival.jpg" alt="Music Festival" title="Music Festival" class="gallery-img"></td>
+          <td><img src="./images/treeplanting.jpg" alt="Tree Planting" title="Tree Planting" class="gallery-img"></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- 5. Event Registration Form -->
+    <section>
+      <h2>Register for an Event</h2>
+      <form onsubmit="showOutput(); return false;">
+        <label>Name:</label>
+        <input type="text" name="name" placeholder="Enter name" required autofocus>
+
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="Enter email" required>
+
+        <label>Date:</label>
+        <input type="date" name="date" required>
+
+        <label>Event Type:</label>
+        <select id="eventType" onchange="savePreference(); showFee();">
+          <option value="">--Select--</option>
+          <option value="cleanup">Cleanup</option>
+          <option value="music">Music Festival</option>
+        </select>
+
+        <label>Message:</label>
+        <textarea id="message" rows="4" onkeyup="countChars(this);"></textarea>
+        <div class="char-count" id="charCount">0 characters</div>
+
+        <label>Phone:</label>
+        <input type="text" id="phone" onblur="validatePhone()" placeholder="1234567890">
+
+        <div id="feeDisplay" class="highlight"></div>
+
+        <input type="submit" value="Register" onclick="alert('Registration Submitted!')">
+        <output id="confirmationMsg"></output>
+      </form>
+    </section>
+
+    <!-- 6. Event Feedback -->
+    <section id="feedback">
+      <h2>Feedback</h2>
+      <textarea rows="4" placeholder="Your feedback..." onkeyup="countChars(this);"></textarea>
+      <div class="char-count" id="charCount2">0 characters</div>
+    </section>
+
+    <!-- 7. Video Invite -->
+    <section id="video">
+      <h2>Event Promo Video</h2>
+      <video controls oncanplay="document.getElementById('videoReady').innerText='Video ready to play!'">
+        <source src="./video/flower.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+      <p id="videoReady" style="color:green;"></p>
+    </section>
+
+    <!-- 8. User Preferences -->
+    <section id="dropdown">
+      <h2>Save Your Preferences</h2>
+      <button onclick="clearPrefs()">Clear Preferences</button>
+    </section>
+
+    <!-- 9. Geolocation -->
+    <section id="geo">
+      <h2>Find Nearby Events</h2>
+      <button onclick="getLocation()">Find Nearby Events</button>
+      <div id="locationResult"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Local Community Council</p>
+  </footer>
+
+  <!-- Script Section -->
+  <script>
+    function showOutput() {
+      document.getElementById("confirmationMsg").value = "Successfully Registered!";
+    }
+
+    function countChars(elem) {
+      const count = elem.value.length;
+      const id = elem.id === "message" ? "charCount" : "charCount2";
+      document.getElementById(id).innerText = `${count} characters`;
+    }
+
+    function validatePhone() {
+      const phone = document.getElementById("phone").value;
+      const valid = /^[0-9]{10}$/;
+      if (!valid.test(phone)) alert("Invalid phone number. Must be 10 digits.");
+    }
+
+    function showFee() {
+      const event = document.getElementById("eventType").value;
+      let fee = "";
+      if (event === "cleanup") fee = "$0";
+      else if (event === "music") fee = "$10";
+      document.getElementById("feeDisplay").innerText = "Fee: " + fee;
+    }
+
+    function savePreference() {
+      const type = document.getElementById("eventType").value;
+      localStorage.setItem("preferredEvent", type);
+    }
+
+    window.onload = function () {
+      const pref = localStorage.getItem("preferredEvent");
+      if (pref) document.getElementById("eventType").value = pref;
+    };
+
+    function clearPrefs() {
+      localStorage.clear();
+      sessionStorage.clear();
+      alert("Preferences Cleared");
+    }
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError, {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        });
+      } else {
+        document.getElementById("locationResult").innerText = "Geolocation not supported.";
+      }
+    }
+
+    function showPosition(position) {
+      document.getElementById("locationResult").innerText =
+        "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
+    }
+
+    function showError(error) {
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          alert("User denied the request for Geolocation.");
+          break;
+        case error.TIMEOUT:
+          alert("Request timed out.");
+          break;
+        default:
+          alert("An unknown error occurred.");
+      }
+    }
+
+    console.log("Page loaded. Use DevTools to inspect elements and JS variables.");
+  </script>
+
+</body>
+
+</html>
