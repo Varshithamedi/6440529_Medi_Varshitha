@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Community Event Portal - Bootstrap 5 Exercises</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    /* Exercise 11.2: Box model demonstration */
+    .box-model-demo {
+      padding: 15px;
+      margin: 15px;
+      border: 3px solid #007bff;
+      background-color: #e9f5ff;
+      width: 300px;
+    }
+
+    /* Exercise 19: Sass customization simulation (via CSS overrides) */
+    :root {
+      --bs-primary: #2a9d8f;
+      --bs-secondary: #264653;
+      --bs-success: #e9c46a;
+      --bs-info: #f4a261;
+      --bs-warning: #e76f51;
+      --bs-danger: #d62828;
+      --bs-font-sans-serif: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      font-family: var(--bs-font-sans-serif);
+    }
+
+    /* Exercise 10.3: Debugging example - invalid color fixed */
+    .debug-text {
+      color: var(--bs-primary);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Exercise 1: Inline CSS example -->
+  <div style="background-color:#f8f9fa; padding:20px;">
+    <h1 class="text-center">Local Community Event Portal</h1>
+  </div>
+
+  <!-- Exercise 2: Internal CSS example -->
+  <section class="container my-4">
+    <h2>Internal CSS styled section</h2>
+    <p>This section uses internal CSS for the box model demo below.</p>
+    <div class="box-model-demo">
+      <p>This box has padding, margin, and border (box model demonstration).</p>
+    </div>
+  </section>
+
+  <!-- Exercise 3: Bootstrap Grid -->
+  <section class="container my-4">
+    <h2>Bootstrap Grid Layout (Events)</h2>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <img src="images/cleanup.jpg" class="card-img-top" alt="Cleanup Event" />
+          <div class="card-body">
+            <h5 class="card-title">Community Cleanup</h5>
+            <p class="card-text">Join us to clean up the neighborhood park.</p>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+            <span class="badge bg-success position-absolute top-0 end-0 m-2">Free</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <img src="images/foodmarket.jpg" class="card-img-top" alt="Food Market" />
+          <div class="card-body">
+            <h5 class="card-title">Food Market</h5>
+            <p class="card-text">Fresh local produce and delicious street food.</p>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+            <span class="badge bg-warning position-absolute top-0 end-0 m-2">Paid</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <img src="images/sportsday.jpg" class="card-img-top" alt="Sports Day" />
+          <div class="card-body">
+            <h5 class="card-title">Community Sports Day</h5>
+            <p class="card-text">Fun sports activities for all ages.</p>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+            <span class="badge bg-info position-absolute top-0 end-0 m-2">Outdoor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exercise 4: Typography -->
+  <section class="container my-4">
+    <h2>Typography</h2>
+    <h1>Heading 1 - Large Title</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <p class="lead">Lead paragraph for important info or intro text.</p>
+    <p>Regular paragraph text with <mark>highlighted</mark> words.</p>
+    <blockquote class="blockquote">
+      <p>A blockquote example from a community member.</p>
+      <footer class="blockquote-footer">Jane Doe, <cite title="Source Title">Local Resident</cite></footer>
+    </blockquote>
+  </section>
+
+  <!-- Exercise 5: Colors and Backgrounds -->
+  <section class="container my-4">
+    <h2>Colors and Backgrounds</h2>
+    <div class="p-3 mb-2 bg-primary text-white">Primary background with white text</div>
+    <div class="p-3 mb-2 bg-success text-white">Success background with white text</div>
+    <div class="p-3 mb-2 bg-warning text-dark">Warning background with dark text</div>
+    <div class="p-3 mb-2 bg-danger text-white">Danger background with white text</div>
+    <div class="p-3 mb-2 bg-light text-dark border">Light background with border</div>
+  </section>
+
+  <!-- Exercise 6: Links and Lists -->
+  <section class="container my-4">
+    <h2>Links and Lists</h2>
+    <p>Useful Links:</p>
+    <ul class="list-unstyled">
+      <li><a href="#" class="link-primary"><i class="bi bi-house-door-fill"></i> Home</a></li>
+      <li><a href="#" class="link-success"><i class="bi bi-info-circle-fill"></i> About Us</a></li>
+      <li><a href="#" class="link-warning"><i class="bi bi-calendar-event-fill"></i> Events</a></li>
+      <li><a href="#" class="link-danger"><i class="bi bi-envelope-fill"></i> Contact</a></li>
+    </ul>
+  </section>
+
+  <!-- Exercise 7: Tables -->
+  <section class="container my-4">
+    <h2>Event Schedule Table</h2>
+    <table class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Event</th>
+          <th>Date</th>
+          <th>Location</th>
+          <th>Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Community Cleanup</td>
+          <td>June 5, 2025</td>
+          <td>Central Park</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <td>Food Market</td>
+          <td>June 12, 2025</td>
+          <td>Main Street</td>
+          <td>$5 Entry</td>
+        </tr>
+        <tr>
+          <td>Sports Day</td>
+          <td>June 20, 2025</td>
+          <td>Community Center</td>
+          <td>Free</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Exercise 8: Forms -->
+  <section class="container my-4">
+    <h2>Contact Us Form</h2>
+    <form>
+      <div class="mb-3">
+        <label for="nameInput" class="form-label">Name</label>
+        <input type="text" id="nameInput" class="form-control" placeholder="Your Name" />
+      </div>
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email address</label>
+        <input type="email" id="emailInput" class="form-control" placeholder="name@example.com" />
+      </div>
+      <div class="mb-3">
+        <label for="messageInput" class="form-label">Message</label>
+        <textarea id="messageInput" class="form-control" rows="3" placeholder="Your message here"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </section>
+
+  <!-- Exercise 9: Buttons -->
+  <section class="container my-4">
+    <h2>Buttons</h2>
+    <button class="btn btn-primary me-2">Primary Button</button>
+    <button class="btn btn-secondary me-2">Secondary Button</button>
+    <button class="btn btn-success me-2">Success Button</button>
+    <button class="btn btn-danger me-2">Danger Button</button>
+    <button class="btn btn-warning me-2">Warning Button</button>
+    <button class="btn btn-info me-2">Info Button</button>
+    <button class="btn btn-light me-2">Light Button</button>
+    <button class="btn btn-dark me-2">Dark Button</button>
+  </section>
+
+  <!-- Exercise 10: Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Event Portal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#typography">Typography</a></li>
+          <li class="nav-item"><a class="nav-link" href="#colors">Colors</a></li>
+          <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Exercise 12: Bootstrap Icons -->
+  <section class="container my-4">
+    <h2>Bootstrap Icons</h2>
+    <i class="bi bi-house-door-fill fs-1 text-primary me-3"></i>
+    <i class="bi bi-calendar-event-fill fs-1 text-success me-3"></i>
+    <i class="bi bi-people-fill fs-1 text-warning me-3"></i>
+    <i class="bi bi-envelope-fill fs-1 text-danger me-3"></i>
+    <i class="bi bi-gear-fill fs-1 text-info me-3"></i>
+  </section>
+
+  <!-- Exercise 13: JavaScript Plugins -->
+  <section class="container my-4">
+    <h2>JavaScript Plugins: Modal, Tooltip, Popover, Carousel</h2>
+    <!-- Modal trigger button -->
+    <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#registerModal">Open Registration Modal</button>
+
+    <!-- Tooltip button -->
+    <button type="button" class="btn btn-secondary me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+      Hover for Tooltip
+    </button>
+
+    <!-- Popover button -->
+    <button type="button" class="btn btn-info me-2" data-bs-toggle="popover" data-bs-trigger="focus" title="Popover Title" data-bs-content="Popover body content goes here.">
+      Click for Popover
+    </button>
+
+    <!-- Carousel -->
+    <div id="eventCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#eventCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#eventCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#eventCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/artfair.jpg" class="d-block w-100" alt="Art Fair" />
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+            <h5>Art Fair</h5>
+            <p>Explore local artists and crafts.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/musicfestival.jpg" class="d-block w-100" alt="Music Festival" />
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+            <h5>Music Festival</h5>
+            <p>Enjoy live music from local bands.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/treeplanting.jpg" class="d-block w-100" alt="Tree Planting" />
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+            <h5>Tree Planting</h5>
+            <p>Help green our community.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Exercise 14: Flex Utilities -->
+  <footer class="bg-secondary text-white py-3 mt-5 d-flex justify-content-center gap-3">
+    <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+    <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+    <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+    <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
+  </footer>
+
+  <!-- Exercise 15: Responsive Utilities -->
+  <div class="container my-4">
+    <h2>Responsive Utilities</h2>
+    <p>
+      <span class="d-none d-sm-inline text-success">Visible on small+ devices</span>
+      <span class="d-inline d-sm-none text-danger">Visible only on xs (extra small) devices</span>
+    </p>
+  </div>
+
+  <!-- Exercise 16: Position Utilities -->
+  <section class="container my-4">
+    <h2>Position Utilities (Badges on cards)</h2>
+    <div class="position-relative d-inline-block">
+      <img src="images/cleanup.jpg" class="img-thumbnail" alt="Cleanup Event" />
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        Hot
+        <span class="visually-hidden">new alerts</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- Exercise 17: Multi-column layout -->
+  <section class="container my-4">
+    <h2>Multi-column Layout</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="text-justify" style="column-count: 2; column-gap: 20px;">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget risus libero. Aliquam erat volutpat. Donec porttitor fermentum augue, sed elementum est condimentum non. Praesent tristique dui non magna dignissim, a dignissim erat congue.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <p class="text-justify" style="column-count: 2; column-gap: 20px;">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exercise 18: Debugging (intentional errors fixed) -->
+  <section class="container my-4">
+    <h2>Debugging Example</h2>
+    <p class="debug-text">This text color was fixed from an invalid value to primary color (see CSS comment).</p>
+  </section>
+
+  <!-- Exercise 19: Sass Customization (simulated in CSS above) -->
+<section class="container my-4">
+  <h2>Sass Customization Example</h2>
+  <p>This section demonstrates how Sass customization can affect styling in Bootstrap projects, simulated here using CSS.</p>
+  <!-- Add more content or example components here as needed -->
+</section>
+
