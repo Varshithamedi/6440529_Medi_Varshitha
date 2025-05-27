@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local Community Event Portal</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- Inline CSS example -->
+    <header style="font-family: 'Courier New', Courier, monospace; letter-spacing: 3px;">
+        <h1>Local Community Event Portal</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#cleanup">Cleanup Drive</a></li>
+            <li><a href="#foodmarket">Food Market</a></li>
+            <li><a href="#sportsday">Sports Day</a></li>
+            <li><a href="#artfair">Art Fair</a></li>
+            <li><a href="#musicfestival">Music Festival</a></li>
+            <li><a href="#treeplanting">Tree Planting</a></li>
+        </ul>
+    </nav>
+
+    <section id="welcomeBanner">
+        <h2>Welcome to Your Local Events Hub!</h2>
+        <p>Discover exciting community events happening near you.</p>
+    </section>
+
+    <!-- Multi-column news section -->
+    <section id="news">
+        <article>
+            <h3>Community Cleanup Drive</h3>
+            <p>Join us this Saturday at 9 AM for a neighborhood cleanup. Gloves and bags provided!</p>
+        </article>
+        <article>
+            <h3>Food Market Fest</h3>
+            <p>Sample fresh local produce and homemade treats. Open Sunday 10 AM to 4 PM.</p>
+        </article>
+        <article>
+            <h3>Annual Sports Day</h3>
+            <p>Fun competitions and games for all ages. Register your team now!</p>
+        </article>
+        <article>
+            <h3>Art & Craft Fair</h3>
+            <p>Explore local artists’ work and workshops. Perfect for family outings.</p>
+        </article>
+        <article>
+            <h3>Music Festival</h3>
+            <p>Enjoy live music performances from local bands and artists. Bring your friends!</p>
+        </article>
+        <article>
+            <h3>Tree Planting Event</h3>
+            <p>Help green your community by planting trees. Tools and saplings provided.</p>
+        </article>
+    </section>
+
+    <!-- Event Gallery (Cards) -->
+    <section id="gallery">
+        <div class="gallery-card" id="cleanup">
+            <img src="images/cleanup.jpg" alt="Cleanup Drive" />
+            <h4>Cleanup Drive</h4>
+        </div>
+        <div class="gallery-card" id="foodmarket">
+            <img src="images/foodmarket.jpg" alt="Food Market" />
+            <h4>Food Market</h4>
+        </div>
+        <div class="gallery-card" id="sportsday">
+            <img src="images/sportsday.jpg" alt="Sports Day" />
+            <h4>Sports Day</h4>
+        </div>
+        <div class="gallery-card" id="artfair">
+            <img src="images/artfair.jpg" alt="Art Fair" />
+            <h4>Art & Craft Fair</h4>
+        </div>
+        <div class="gallery-card" id="musicfestival">
+            <img src="images/musicfestival.jpg" alt="Music Festival" />
+            <h4>Music Festival</h4>
+        </div>
+        <div class="gallery-card" id="treeplanting">
+            <img src="images/treeplanting.jpg" alt="Tree Planting" />
+            <h4>Tree Planting</h4>
+        </div>
+    </section>
+
+    <section id="event-video" style="margin-top: 2rem; text-align: center;">
+        <h3>Watch Our Community Event Highlights</h3>
+        <video controls width="600" style="max-width: 100%; height: auto;">
+            <source src="images/flower.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <!-- Event schedule table -->
+    <section id="schedule">
+        <h2>Event Schedule</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cleanup Drive</td>
+                    <td>June 1, 2025</td>
+                    <td>Community Park</td>
+                    <td>9:00 AM - 12:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Food Market</td>
+                    <td>June 3, 2025</td>
+                    <td>Main Square</td>
+                    <td>10:00 AM - 4:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Sports Day</td>
+                    <td>June 10, 2025</td>
+                    <td>Sports Complex</td>
+                    <td>8:00 AM - 5:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Art & Craft Fair</td>
+                    <td>June 15, 2025</td>
+                    <td>Community Center</td>
+                    <td>11:00 AM - 6:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Music Festival</td>
+                    <td>June 20, 2025</td>
+                    <td>Open Air Theater</td>
+                    <td>5:00 PM - 11:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Tree Planting</td>
+                    <td>June 25, 2025</td>
+                    <td>Green Park</td>
+                    <td>8:00 AM - 12:00 PM</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Newsletter subscription form -->
+    <section id="subscribe">
+        <h2>Subscribe to our newsletter</h2>
+        <form>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+</body>
+</html>
