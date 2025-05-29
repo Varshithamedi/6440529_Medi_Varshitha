@@ -54,7 +54,6 @@ Simple projects: Factorial calculator, Expense tracker, etc.
 🗂️ Project Structure
 / |--Module1|--BootStrap5 |--CSS# |--HTML5 |--JavaScript |--Module2|--ANSI SQL using MySQL|--SQL files |--Module3|--CoreJava|--Exercises
 
-Each folder contains exercises named clearly like: exercise1_1.html exercise3_2.java exercise5_1.sql
 
 🛠️ How to Use
 Clone this repository:
