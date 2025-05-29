@@ -49,6 +49,8 @@ File I/O
 Basic JDBC (Database connectivity)
 Java methods (Recursive, Iterative)
 Simple projects: Factorial calculator, Expense tracker, etc.
+
+
 🗂️ Project Structure
 / |--Module1|--BootStrap5 |--CSS# |--HTML5 |--JavaScript |--Module2|--ANSI SQL using MySQL|--SQL files |--Module3|--CoreJava|--Exercises
 
